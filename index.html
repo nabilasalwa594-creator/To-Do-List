@@ -22,6 +22,7 @@
             text-align: center;
             cursor: pointer;
             background-color: #fff;
+            font-size: 14px;
         }
         .day:hover {
             background-color: #e0e0e0;
@@ -51,6 +52,7 @@
         input[type="text"] {
             padding: 5px;
             margin-right: 10px;
+            flex: 1;
         }
         button {
             padding: 5px 10px;
@@ -61,6 +63,41 @@
         }
         button:hover {
             background-color: #0056b3;
+        }
+
+        /* Responsivitas untuk HP (layar < 600px) */
+        @media (max-width: 600px) {
+            body {
+                margin: 10px;
+            }
+            .calendar {
+                gap: 5px;
+            }
+            .day {
+                padding: 8px;
+                font-size: 12px;
+            }
+            .header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .header h2 {
+                font-size: 18px;
+            }
+            .tasks h3 {
+                font-size: 16px;
+            }
+            input[type="text"] {
+                padding: 8px;
+                font-size: 14px;
+            }
+            button {
+                padding: 8px 12px;
+                font-size: 14px;
+            }
+            .task {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -102,7 +139,7 @@
 
             monthYear.textContent = date.toLocaleDateString('id-ID', { year: 'numeric', month: 'long' });
 
-            // Header hari (Senin - Minggu)
+            // Header hari (Min - Sab)
             const daysOfWeek = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'];
             daysOfWeek.forEach(day => {
                 const dayHeader = document.createElement('div');
